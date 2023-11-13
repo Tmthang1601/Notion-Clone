@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1699811735128,
+      "tag": "0000_parallel_wendell_vaughn",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1699815570884,
+      "tag": "0001_wise_loki",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1699902777687,
+      "tag": "0002_amusing_tony_stark",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1699907434546,
+      "tag": "0003_cloudy_aqueduct",
+      "breakpoints": true
+    }
+  ]
+}
