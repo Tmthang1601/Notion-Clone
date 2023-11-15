@@ -49,10 +49,7 @@ const TitleSection: React.FC<TitleSectionProps> = (
                 </>
             ):(
                 <h1 className='text-left text-4xl sm:text-6xl sm:max-w-[850px] md:text-center font-semibold'>
-                    <TitleSection 
-                        pill='Your workspace, Perfected' 
-                        title="All-In-One Collaboration and Productivity Platform"
-                    />
+                    {title}
                 </h1>
             )}
         </section>
