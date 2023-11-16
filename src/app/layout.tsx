@@ -3,6 +3,7 @@ import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import db from '@/lib/supabase/db'
 import { ThemeProvider } from '@/lib/providers/next-theme-provider'
+import Header from '@/components/landing-page/header'
 
 const inter = DM_Sans({ subsets: ['latin'] })
 
@@ -26,7 +27,7 @@ export default function RootLayout({
             enableSystem
         >
           {children}
-        </ThemeProvider>
+      </ThemeProvider>
         
         
       </body>
