@@ -4,6 +4,7 @@ import './globals.css'
 import db from '@/lib/supabase/db'
 import { ThemeProvider } from '@/lib/providers/next-theme-provider'
 import Header from '@/components/landing-page/header'
+import AppStateProvider from '@/lib/providers/state-provider'
 
 const inter = DM_Sans({ subsets: ['latin'] })
 
@@ -26,7 +27,10 @@ export default function RootLayout({
             defaultTheme='dark'
             enableSystem
         >
+          <AppStateProvider>
           {children}
+          </AppStateProvider>
+          
       </ThemeProvider>
         
         

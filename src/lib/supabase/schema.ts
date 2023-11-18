@@ -1,13 +1,13 @@
 import { boolean, integer, jsonb, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
-import { prices, subscriptionStatus, users } from "../../../migrations/schema";
-import { sql } from "drizzle-orm";
+import { prices, products, subscriptionStatus, users } from "../../../migrations/schema";
+import { relations, sql } from "drizzle-orm";
 
 export const workspaces = pgTable('workspaces', {
     id: uuid('id').defaultRandom().primaryKey().notNull(),
     createdAt: timestamp('created_at', {
       withTimezone: true,
       mode: 'string',
-    }),
+    }).defaultNow().notNull(),
     workspaceOwner: uuid('workspace_owner').notNull(),
     title: text('title').notNull(),
     iconId: text('icon_id').notNull(),
@@ -42,7 +42,7 @@ export const workspaces = pgTable('workspaces', {
     createdAt: timestamp('created_at', {
       withTimezone: true,
       mode: 'string',
-    }),
+    }).defaultNow().notNull(),
     title: text('title').notNull(),
     iconId: text('icon_id').notNull(),
     data: text('data'),
@@ -113,10 +113,20 @@ export const workspaces = pgTable('workspaces', {
     createdAt: timestamp('created_at', {
       withTimezone: true,
       mode: 'string',
-    })
+    }).defaultNow().notNull()
       .defaultNow()
       .notNull(),
     userId: uuid('user_id')
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),
   });
+  export const productsRelations = relations(products, ({ many }) => ({
+    prices: many(prices),
+  }));
+  
+  export const pricesRelations = relations(prices, ({ one }) => ({
+    product: one(products, {
+      fields: [prices.productId],
+      references: [products.id],
+    }),
+  }));
