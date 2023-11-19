@@ -503,8 +503,8 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
       supabase.removeChannel(room);
     };
   }, [fileId, quill, supabase, user]);
-
   return (
+    
     <>
       <div className="relative">
         {details.inTrash && (
